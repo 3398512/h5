@@ -1,0 +1,160 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+html{
+  font-size: 16px;
+}
+body{
+  margin: 0px; 
+  overflow: auto;
+  position: relative;
+}
+.disn{
+  display: none;
+}
+.disb{
+  display: block;
+}
+.p-r {
+  position: relative;
+}
+.p-a {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.page{
+  /* max-width: 600px; */
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.bgBox{
+  /* background-image: url(../files/bg-1.png); */
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  background-color: #bed1f6;
+  background-size: cover;
+}
+.center{
+  width: 100%;
+}
+.theBox{
+  display: block;
+  width: 100%;
+  height: 64.5rem;
+}
+.theBox2{
+  display: block;
+  width: 100%;
+  height: 17rem;
+}
+.input-box{
+  width: 100%;
+  display: block;
+  color: #333333;
+}
+.telInput {
+  display: block;
+  width: 60%;
+  min-height: 2rem;
+  margin: 0.6rem auto;
+  padding: 0.4rem 0.6rem;
+  font-size: 2rem;
+  text-align: center;
+  border-radius: 3rem !important;
+  border: 1px solid #ccc1ff;
+  background-color: #f5f5f5;
+}
+.input-box button{
+  display: block;
+  width: 60%;
+  font-size: 2rem;
+  line-height: 3.5rem;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.25rem;
+  margin: 1rem auto;
+  background-color: #fd4a7f;
+}
+.tipBox{
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1rem;
+  margin: 1rem;
+}
+.tipLabel {
+  /* border: 1px solid red; */
+  vertical-align: middle;
+  font-size: 1rem;
+}
+.tipInput {
+  display: inline-block;
+  /* vertical-align: top; */
+  /* width: 1.5rem;
+  height: 1.5rem; */
+}
+.centerBox{
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+  height: 100vh;
+  background: #fff;
+  overflow: auto;
+}
+
+input[type="checkbox"] {
+  /* width: 16px;
+  height: 16px; */
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  position: relative;
+  margin-top: -2px;
+  outline: none;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #655EFA;
+  border-radius: 4px;
+  box-sizing: content-box;
+  outline: none;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "\2713";
+  background-color: #655EFA;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 1px solid  #655EFA;
+  outline: none;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 4px;
+}
+input{
+  border:0;
+  webkit-box-shadow:none;
+  box-shadow:none;
+}
+input:focus{
+  border-color:#fff;
+  border:0;
+  webkit-box-shadow:none;
+  box-shadow:none;
+}
