@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+  <meta name="format-detection" content="telephone=no,email=no">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="files/index.css">
+  <script type="text/javascript" language="javascript" src="files/jquery.js"></script>
+  <script type="text/javascript" language="javascript" src="files/autosize.js"></script>
+  <title>出行福利官发福利啦</title>
+</head>
+<body>
+  <div class="page">
+    <div class="bgBox p-r">
+      <img src="files/bg-1.png" class="bgBox" />
+      <div class="center p-a">
+        <div class="theBox"></div>
+          <div class="input-box">
+            <input placeholder="请输入手机号" value="" class="telInput" id="telInput">
+            <button type="button" onclick="save()">免费领取</button>
+            <div class="tipBox">
+              <label class="tipLabel">
+                <input type="checkbox" id="checkbox-id" class="tipInput">
+                我已阅读并同意
+                <a target="_blank" href="files/rule.html">《个人信息使用授权书》</a>
+              </label>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <script src="//pv.sohu.com/cityjson?ie=utf-8"></script>
+  <script type="text/javascript">
+    /* Toast自定义函数 */
+  function Toast(msg, duration) {
+    duration = isNaN(duration) ? 1500 : duration;
+    var m = document.createElement('div');
+    m.innerHTML = msg; //width:34%
+    m.style.cssText = "width: 34%;min-width: 90px;height: auto;color: #fff;line-height: auto;text-align: center;border-radius: 5px;padding:10px;position: fixed;top: 40%;left: 33%;z-index: 999999;background: #696969;font-size: 14px;";
+    document.body.appendChild(m);
+    setTimeout(function () {
+        var d = 0.5;
+        m.style.webkitTransition = '-webkit-transform ' + d + 's ease-in, opacity ' + d + 's ease-in';
+        m.style.opacity = '0';
+        setTimeout(function () {
+            document.body.removeChild(m)
+        }, d * 1000);
+    }, duration);
+  }
+</script>
+<script>
+$(document).ready(function(){
+  save = function (){
+    if($('#checkbox-id').is(':checked')) {
+      let data={
+        mobile: $('.telInput').val(),
+        // userIp: returnCitySN["cip"]
+        // userIp: '192.168.1.22',
+      };
+      console.log('data', data)
+      $.ajax({
+        method:"POST",
+        url:'http://113.44.64.173:8081/spd-boot/spd/spdTcCoupon/add',
+        data: JSON.stringify(data),
+        headers: {
+          'Content-Type': "application/json;charset=UTF-8"
+        },
+        success:function(req){
+          Toast(req.message, 2000)
+          $('.telInput').val('')
+        },
+        error:function(e){
+          Toast(e.message, 2000)
+        }
+      })
+    } else {
+      Toast("请勾选同意《个人信息使用授权书》", 2000);
+      return false;
+    }
+  }
+  
+})
+</script>
+</body>
+</html>
